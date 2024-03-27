@@ -1,8 +1,13 @@
 import "./style.scss";
 
 //Use query selectors to gain access to HTML elements, namely buttons and display
+//Getting number and operator displays
 const numDisplay =
   document.querySelector<HTMLHeadingElement>(".number-display");
+const oprDisplay =
+  document.querySelector<HTMLHeadingElement>(".operator-display");
+
+//Getting number buttons
 const zeroButton = document.querySelector<HTMLButtonElement>("#zero");
 const oneButton = document.querySelector<HTMLButtonElement>("#one");
 const twoButton = document.querySelector<HTMLButtonElement>("#two");
@@ -14,7 +19,17 @@ const sevenButton = document.querySelector<HTMLButtonElement>("#seven");
 const eightButton = document.querySelector<HTMLButtonElement>("#eight");
 const nineButton = document.querySelector<HTMLButtonElement>("#nine");
 
+//Getting operator buttons
+const plusButton = document.querySelector<HTMLButtonElement>("#plus");
+const equalsButton = document.querySelector<HTMLButtonElement>("#equals");
+
+//Initialising variables to store numbers for calculation
+let storedNumOne: number = 0;
+let storedNumTwo: number = 0;
+let total: number = 0;
+
 //Handle any NULL exceptions by throwing errors if element doesn't exist
+//Null exceptions for number buttons
 if (
   !zeroButton ||
   !oneButton ||
@@ -27,11 +42,16 @@ if (
   !eightButton ||
   !nineButton
 ) {
-  throw new Error("Error with buttons");
+  throw new Error("Error with numbers");
 }
 
-//Null Exceptions for display
-if (!numDisplay) {
+//Null exceptions for operators
+if (!plusButton || !equalsButton) {
+  throw new Error("Error with operators");
+}
+
+//Null Exceptions for displays
+if (!numDisplay || !oprDisplay) {
   throw new Error("Error with display");
 }
 
@@ -77,7 +97,32 @@ const getNine = (event: Event) => {
   numDisplay.innerText = nineButton.innerText;
 };
 
-//Add event listeners to buttons to enable click
+//Event functions to perform calculations
+//When operator button is clicked the current display value should be stored but only if it's a number
+//If input is valid, a new number can be clicked
+//When equals or another operator is pressed previous operator calculation should be performed and stored if necessary
+//If input is invalid, an error should be displayed
+//Pressing clear should set display and stored numbers to zero
+let hasFired: boolean = false;
+const handleAddition = (event: Event) => {
+  //console.log("Event: ", event);
+  if (!hasFired) {
+    storedNumOne = Number(numDisplay.innerText);
+    console.log(storedNumOne);
+    oprDisplay.innerText = "+";
+    hasFired = true;
+  } else {
+  }
+};
+
+const handleEquals = (event: Event) => {
+  //console.log("Event: ", event);
+  total = total + storedNumOne;
+  console.log(total);
+  numDisplay.innerText = total.toString();
+};
+
+//Add event listeners to number buttons to enable click
 zeroButton.addEventListener("click", getZero);
 oneButton.addEventListener("click", getOne);
 twoButton.addEventListener("click", getTwo);
@@ -88,3 +133,7 @@ sixButton.addEventListener("click", getSix);
 sevenButton.addEventListener("click", getSeven);
 eightButton.addEventListener("click", getEight);
 nineButton.addEventListener("click", getNine);
+
+//Add event listeners to operator buttons
+plusButton.addEventListener("click", handleAddition);
+equalsButton.addEventListener("click", handleEquals);

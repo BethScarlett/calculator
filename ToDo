@@ -1,0 +1,30 @@
+Remaining work for project
+
+- Finish additional-calculator-functionality
+- Create new branch to apply stylings onto page
+- Finish page stylings
+- Create a readme.md and write a short introduction into it
+- Clean up any unused code/notes which DONT denote a section (i.e. any notes which explain what I need/will do)
+- Go through code to ensure it is clean, readable and follows BEM
+
+For additional-calculator-functionality branch
+
+- Test calculations again to ensure they are working
+- Fix error in handle conversion
+- Clean up code including unused notes and no longer needed console logs
+- Attempt to refactor code to improve readability and funcitonality
+
+For styling branch
+
+- Decide on desgin to apply
+- Add introduction and explanation for page (Slogan If you've got Math.problems then we've got Math.solutions)
+- Create backdrop for calculator
+- Stlye and place buttons according to design
+
+///Current bugs///
+handleConversion function (Current line 429 as of 28/03/24): numDisplay.innerText currently shows as error (type number is not assignable to type string) however the code works, and the same code 3 lines below works just without minus before Math.abs
+
+///Additional work///
+
+- Add more operations / allow for bracket notations
+- Add additional calculators i.e. temperature

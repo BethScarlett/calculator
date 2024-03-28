@@ -25,13 +25,18 @@ const minusButton = document.querySelector<HTMLButtonElement>("#minus");
 const multiplyButton = document.querySelector<HTMLButtonElement>("#multiply");
 const divideButton = document.querySelector<HTMLButtonElement>("#divide");
 const equalsButton = document.querySelector<HTMLButtonElement>("#equals");
+const clearButton = document.querySelector<HTMLButtonElement>("#clear");
+const positiveNegativeButton =
+  document.querySelector<HTMLButtonElement>("#positive-negative");
+const percentageButton = document.querySelector<HTMLButtonElement>("#percent");
 
 //Initialising variables to store numbers & operators for calculation
 let storedNumOne: number = 0;
 let storedNumTwo: number = 0;
 let total: number = 0;
 let opToUse: string = "";
-let isFiring: boolean = false;
+let isEqualsFiring: boolean = false;
+let isConversionFiring: boolean = false;
 
 //Handle any NULL exceptions by throwing errors if element doesn't exist
 //Null exceptions for number buttons
@@ -56,7 +61,10 @@ if (
   !minusButton ||
   !multiplyButton ||
   !divideButton ||
-  !equalsButton
+  !equalsButton ||
+  !clearButton ||
+  !positiveNegativeButton ||
+  !percentageButton
 ) {
   throw new Error("Error with operators");
 }
@@ -70,42 +78,52 @@ if (!numDisplay || !oprDisplay) {
 const getZero = (event: Event) => {
   //console.log("Event: ", event);
   numDisplay.innerText = zeroButton.innerText;
+  isConversionFiring = false;
 };
 const getOne = (event: Event) => {
   //console.log("Event: ", event);
   numDisplay.innerText = oneButton.innerText;
+  isConversionFiring = false;
 };
 const getTwo = (event: Event) => {
   //console.log("Event: ", event);
   numDisplay.innerText = twoButton.innerText;
+  isConversionFiring = false;
 };
 const getThree = (event: Event) => {
   //console.log("Event: ", event);
   numDisplay.innerText = threeButton.innerText;
+  isConversionFiring = false;
 };
 const getFour = (event: Event) => {
   //console.log("Event: ", event);
   numDisplay.innerText = fourButton.innerText;
+  isConversionFiring = false;
 };
 const getFive = (event: Event) => {
   //console.log("Event: ", event);
   numDisplay.innerText = fiveButton.innerText;
+  isConversionFiring = false;
 };
 const getSix = (event: Event) => {
   //console.log("Event: ", event);
   numDisplay.innerText = sixButton.innerText;
+  isConversionFiring = false;
 };
 const getSeven = (event: Event) => {
   //console.log("Event: ", event);
   numDisplay.innerText = sevenButton.innerText;
+  isConversionFiring = false;
 };
 const getEight = (event: Event) => {
   //console.log("Event: ", event);
   numDisplay.innerText = eightButton.innerText;
+  isConversionFiring = false;
 };
 const getNine = (event: Event) => {
   //console.log("Event: ", event);
   numDisplay.innerText = nineButton.innerText;
+  isConversionFiring = false;
 };
 
 //Event functions to perform calculations
@@ -122,7 +140,7 @@ const handleAddition = (event: Event) => {
   oprDisplay.innerText = "";
   oprDisplay.innerText = "+";
   opToUse = "+";
-  isFiring = false;
+  isEqualsFiring = false;
 };
 
 const handleSubtraction = (event: Event) => {
@@ -132,7 +150,7 @@ const handleSubtraction = (event: Event) => {
   oprDisplay.innerText = "";
   oprDisplay.innerText = "-";
   opToUse = "-";
-  isFiring = false;
+  isEqualsFiring = false;
 };
 
 const handleMultiplication = (event: Event) => {
@@ -142,7 +160,7 @@ const handleMultiplication = (event: Event) => {
   oprDisplay.innerText = "";
   oprDisplay.innerText = "*";
   opToUse = "*";
-  isFiring = false;
+  isEqualsFiring = false;
 };
 
 const handleDivision = (event: Event) => {
@@ -152,16 +170,14 @@ const handleDivision = (event: Event) => {
   oprDisplay.innerText = "";
   oprDisplay.innerText = "/";
   opToUse = "/";
-  isFiring = false;
+  isEqualsFiring = false;
 };
 
-//When equals is pressed, it should take whatever is currently displayed and add it to the first stored number to output a total
-//If equals is pressed again, it should perform calculation again but with total instead of numOne
 const handleEquals = (event: Event) => {
   //console.log("Event: ", event);
 
-  if (!isFiring) {
-    isFiring = true;
+  if (!isEqualsFiring) {
+    isEqualsFiring = true;
     storedNumTwo = Number(numDisplay.innerText);
     console.log("Number two is :" + storedNumTwo);
   } else {
@@ -182,16 +198,23 @@ const handleEquals = (event: Event) => {
       break;
     }
     case "*": {
-      console.log("Subtraction number one is: " + storedNumOne);
-      console.log("Subtraction number two is: " + storedNumTwo);
+      console.log("Multiplication number one is: " + storedNumOne);
+      console.log("Multiplication number two is: " + storedNumTwo);
       total = storedNumOne * storedNumTwo;
       break;
     }
     case "/": {
-      console.log("Subtraction number one is: " + storedNumOne);
-      console.log("Subtraction number two is: " + storedNumTwo);
+      console.log("Division number one is: " + storedNumOne);
+      console.log("Division number two is: " + storedNumTwo);
       total = storedNumOne / storedNumTwo;
       break;
+    }
+    case "%": {
+      //Note: Actual % on calc just divides number by 100.
+      //User must put x multiplied by y then % to get y% of x. Currently works but maybe change later
+      console.log("Percentage number one is: " + storedNumOne);
+      console.log("Percentage number two is: " + storedNumTwo);
+      total = (storedNumOne / 100) * storedNumTwo;
     }
   }
   console.log(total);
@@ -199,6 +222,45 @@ const handleEquals = (event: Event) => {
   oprDisplay.innerText = "";
   oprDisplay.innerText = "=";
   storedNumOne = total;
+};
+
+const handleClear = (event: Event) => {
+  //console.log("Event: ", event);
+  storedNumOne = 0;
+  numDisplay.innerText = "0";
+  storedNumTwo = 0;
+  total = 0;
+  opToUse = "";
+  oprDisplay.innerText = "";
+  isEqualsFiring = false;
+  isConversionFiring = false;
+  console.log(
+    `Stored num one: ${storedNumOne}, stored num two: ${storedNumTwo}, total: ${total}, optouse: ${opToUse}, isEqualsfiring: ${isEqualsFiring}, isConversionFiring: ${isConversionFiring}`
+  );
+};
+
+const handleConversion = (event: Event) => {
+  //console.log("Event: ", event);
+  if (!isConversionFiring) {
+    numDisplay.innerText = -Math.abs(Number(numDisplay.innerText)).toString();
+    isConversionFiring = true;
+  } else {
+    numDisplay.innerText = Math.abs(Number(numDisplay.innerText)).toString();
+    isConversionFiring = false;
+  }
+};
+
+//Percentage button should output x(numOne) percent of y(numTwo)
+//This is achieved by dividing x by 100 then multiplying by y
+
+const handlePercentage = (event: Event) => {
+  //console.log("Event: ", event);
+  storedNumOne = Number(numDisplay.innerText);
+  console.log("Number one is: " + storedNumOne);
+  oprDisplay.innerText = "";
+  oprDisplay.innerText = "%";
+  opToUse = "%";
+  isEqualsFiring = false;
 };
 
 //Add event listeners to number buttons to enable click
@@ -219,3 +281,6 @@ minusButton.addEventListener("click", handleSubtraction);
 multiplyButton.addEventListener("click", handleMultiplication);
 divideButton.addEventListener("click", handleDivision);
 equalsButton.addEventListener("click", handleEquals);
+clearButton.addEventListener("click", handleClear);
+positiveNegativeButton.addEventListener("click", handleConversion);
+percentageButton?.addEventListener("click", handlePercentage);

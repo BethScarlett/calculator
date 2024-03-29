@@ -9,8 +9,6 @@ Remaining work for project
 
 For additional-calculator-functionality branch
 
-- Test calculations again to ensure they are working
-- Fix error in handle conversion
 - Clean up code including unused notes and no longer needed console logs
 - Attempt to refactor code to improve readability and funcitonality
 
@@ -22,7 +20,40 @@ For styling branch
 - Stlye and place buttons according to design
 
 ///Current bugs///
-handleConversion function (Current line 429 as of 28/03/24): numDisplay.innerText currently shows as error (type number is not assignable to type string) however the code works, and the same code 3 lines below works just without minus before Math.abs
+
+///Fixed Bugs ///
+
+- handleConversion function (Current line 429 as of 28/03/24): numDisplay.innerText currently shows as error (type number is not assignable to type string) however the code works, and the same code 3 lines below works just without minus before Math.abs
+
+- Fixed by adding "-" as a string before math.abs and adding numDisplay.innerText !== "0" in if condition, so as to make it impossible for 0 to become -0
+
+---
+
+User can put an additional point after clicking equals, but can't put one on a second number if it was used for the first (e.g. if the user input 2.x they can't then input 3.x). This occurs until user clicks equals, but this could lead to first issue.
+
+## Addendum - It seems to work but new bug has arisen so testing is difficult. Will return once fixed.
+
+- Fixed by creating a function to check if number input has a point, then setting hasPoint variable accordingly.
+
+---
+
+Sometimes number isn't appended to display number after point is clicked. Instead it replaces the number and doesn't allow for point to be added.
+
+## Addendum - This bug only occurs when numDisplay is 0, even when there is a point. Bug seems to stem from first lines of get number functions
+
+- Fixed by setting isNewNumber variable within hasPoint function. Variable is set to false if point is added
+
+---
+
+Clicking a new number after using equals but before clicking a new operator still has the old operator and total still stored
+
+## Thoughts - I could use clear function to clean up variables. Perhaps if op to use is = as if other ops are in place a longer equation is being used
+
+## Addendum - Clicking a new number now cleans everything and starts a new equation, however clicking clear if handleCleanNumbers has ran now won't allow clear to run afterwards. Will fix before closing bug.
+
+## Addendum 2 - handleCleanNumbers is only firing when = is present
+
+- Fixed by creating handleCleanNumbers function, then passing forceClean variable into it. forceClean true is passed in from handleClear function, and from get number functions but only if = was present
 
 ///Additional work///
 

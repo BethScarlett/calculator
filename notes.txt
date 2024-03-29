@@ -1,0 +1,12 @@
+//Functions to handle checks
+const isPointUsed = () => {
+  let pointUsed: boolean = false;
+  const testString: string[] = numDisplay.innerText.split(".");
+  const testString2: string = testString.join("");
+  if (testString2 == numDisplay.innerText) {
+    return pointUsed;
+  } else {
+    pointUsed = true;
+    return pointUsed;
+  }
+};

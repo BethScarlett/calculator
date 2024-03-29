@@ -81,12 +81,11 @@ if (!numDisplay || !oprDisplay) {
 
 //Event functions to send clicked button value to display
 const getZero = (event: Event) => {
-  //console.log("Event: ", event);
-  if (oprDisplay.innerText === "=") {
+  if (oprDisplay.innerText == "=") {
     handleNumberClean(true);
   }
 
-  if (numDisplay.innerText === "0" || isNewNumber === true) {
+  if (numDisplay.innerText === "0" && isNewNumber === true) {
     console.log("Changing number");
     numDisplay.innerText = zeroButton.innerText;
     isNewNumber = false;
@@ -97,8 +96,8 @@ const getZero = (event: Event) => {
   isConversionFiring = false;
 };
 const getOne = (event: Event) => {
-  //console.log("Event: ", event);
-  if (oprDisplay.innerText === "=") {
+  if (oprDisplay.innerText == "=") {
+    console.log("cleaning");
     handleNumberClean(true);
   }
 
@@ -115,8 +114,7 @@ const getOne = (event: Event) => {
   isConversionFiring = false;
 };
 const getTwo = (event: Event) => {
-  //console.log("Event: ", event);
-  if (oprDisplay.innerText === "=") {
+  if (oprDisplay.innerText == "=") {
     handleNumberClean(true);
   }
 
@@ -131,7 +129,10 @@ const getTwo = (event: Event) => {
   isConversionFiring = false;
 };
 const getThree = (event: Event) => {
-  //console.log("Event: ", event);
+  if (oprDisplay.innerText == "=") {
+    handleNumberClean(true);
+  }
+
   if (numDisplay.innerText === "0" || isNewNumber === true) {
     console.log("Changing number");
     numDisplay.innerText = threeButton.innerText;
@@ -143,7 +144,10 @@ const getThree = (event: Event) => {
   isConversionFiring = false;
 };
 const getFour = (event: Event) => {
-  //console.log("Event: ", event);
+  if (oprDisplay.innerText == "=") {
+    handleNumberClean(true);
+  }
+
   if (numDisplay.innerText === "0" || isNewNumber === true) {
     console.log("Changing number");
     numDisplay.innerText = fourButton.innerText;
@@ -155,7 +159,10 @@ const getFour = (event: Event) => {
   isConversionFiring = false;
 };
 const getFive = (event: Event) => {
-  //console.log("Event: ", event);
+  if (oprDisplay.innerText == "=") {
+    handleNumberClean(true);
+  }
+
   if (numDisplay.innerText === "0" || isNewNumber === true) {
     console.log("Changing number");
     numDisplay.innerText = fiveButton.innerText;
@@ -167,7 +174,10 @@ const getFive = (event: Event) => {
   isConversionFiring = false;
 };
 const getSix = (event: Event) => {
-  //console.log("Event: ", event);
+  if (oprDisplay.innerText == "=") {
+    handleNumberClean(true);
+  }
+
   if (numDisplay.innerText === "0" || isNewNumber === true) {
     console.log("Changing number");
     numDisplay.innerText = sixButton.innerText;
@@ -179,7 +189,10 @@ const getSix = (event: Event) => {
   isConversionFiring = false;
 };
 const getSeven = (event: Event) => {
-  //console.log("Event: ", event);
+  if (oprDisplay.innerText == "=") {
+    handleNumberClean(true);
+  }
+
   if (numDisplay.innerText === "0" || isNewNumber === true) {
     console.log("Changing number");
     numDisplay.innerText = sevenButton.innerText;
@@ -191,7 +204,10 @@ const getSeven = (event: Event) => {
   isConversionFiring = false;
 };
 const getEight = (event: Event) => {
-  //console.log("Event: ", event);
+  if (oprDisplay.innerText == "=") {
+    handleNumberClean(true);
+  }
+
   if (numDisplay.innerText === "0" || isNewNumber === true) {
     console.log("Changing number");
     numDisplay.innerText = eightButton.innerText;
@@ -203,7 +219,10 @@ const getEight = (event: Event) => {
   isConversionFiring = false;
 };
 const getNine = (event: Event) => {
-  //console.log("Event: ", event);
+  if (oprDisplay.innerText == "=") {
+    handleNumberClean(true);
+  }
+
   if (numDisplay.innerText === "0" || isNewNumber === true) {
     console.log("Changing number");
     numDisplay.innerText = nineButton.innerText;
@@ -216,217 +235,116 @@ const getNine = (event: Event) => {
 };
 
 //Event functions to perform calculations
-//Run calculation when operator is pressed if two numbers are stored
 
 const handleAddition = (event: Event) => {
-  //console.log("Event: ", event);
   if (hasBeenCalculated) {
-    storedNumOne = Number(numDisplay.innerText);
-    numDisplay.innerText = "0";
-    console.log("Number one is: " + storedNumOne);
-    oprDisplay.innerText = "";
-    oprDisplay.innerText = storedNumOne + " +";
-    opToUse = "+";
-    isEqualsFiring = false;
-    isNewNumber = true;
-    hasPoint = false;
     hasBeenCalculated = false;
   } else {
     handleMidCalc();
-    storedNumOne = Number(numDisplay.innerText);
-    numDisplay.innerText = "0";
-    console.log("Number one is: " + storedNumOne);
-    oprDisplay.innerText = "";
-    oprDisplay.innerText = storedNumOne + " +";
-    opToUse = "+";
-    isEqualsFiring = false;
-    isNewNumber = true;
-    hasPoint = false;
   }
+  opToUse = "+";
+  handleSetNumbers();
 };
 
 const handleSubtraction = (event: Event) => {
-  //console.log("Event: ", event);
   if (hasBeenCalculated) {
-    storedNumOne = Number(numDisplay.innerText);
-    numDisplay.innerText = "0";
-    console.log("Number one is: " + storedNumOne);
-    oprDisplay.innerText = "";
-    oprDisplay.innerText = storedNumOne + " -";
-    opToUse = "-";
-    isEqualsFiring = false;
-    isNewNumber = true;
-    hasPoint = false;
     hasBeenCalculated = false;
   } else {
     handleMidCalc();
-    storedNumOne = Number(numDisplay.innerText);
-    numDisplay.innerText = "0";
-    console.log("Number one is: " + storedNumOne);
-    oprDisplay.innerText = "";
-    oprDisplay.innerText = storedNumOne + " -";
-    opToUse = "+";
-    isEqualsFiring = false;
-    isNewNumber = true;
-    hasPoint = false;
   }
+  opToUse = "-";
+  handleSetNumbers();
 };
 
 const handleMultiplication = (event: Event) => {
-  //console.log("Event: ", event);
   if (hasBeenCalculated) {
-    storedNumOne = Number(numDisplay.innerText);
-    numDisplay.innerText = "0";
-    console.log("Number one is: " + storedNumOne);
-    oprDisplay.innerText = "";
-    oprDisplay.innerText = storedNumOne + " X";
-    opToUse = "X";
-    isEqualsFiring = false;
-    isNewNumber = true;
-    hasPoint = false;
     hasBeenCalculated = false;
   } else {
     handleMidCalc();
-    storedNumOne = Number(numDisplay.innerText);
-    numDisplay.innerText = "0";
-    console.log("Number one is: " + storedNumOne);
-    oprDisplay.innerText = "";
-    oprDisplay.innerText = storedNumOne + " X";
-    opToUse = "X";
-    isEqualsFiring = false;
-    isNewNumber = true;
-    hasPoint = false;
   }
+  opToUse = "X";
+  handleSetNumbers();
 };
 
 const handleDivision = (event: Event) => {
-  //console.log("Event: ", event);
   if (hasBeenCalculated) {
-    storedNumOne = Number(numDisplay.innerText);
-    numDisplay.innerText = "0";
-    console.log("Number one is: " + storedNumOne);
-    oprDisplay.innerText = "";
-    oprDisplay.innerText = storedNumOne + " /";
-    opToUse = "/";
-    isEqualsFiring = false;
-    isNewNumber = true;
-    hasPoint = false;
     hasBeenCalculated = false;
   } else {
     handleMidCalc();
-    storedNumOne = Number(numDisplay.innerText);
-    numDisplay.innerText = "0";
-    console.log("Number one is: " + storedNumOne);
-    oprDisplay.innerText = "";
-    oprDisplay.innerText = storedNumOne + " /";
-    opToUse = "/";
-    isEqualsFiring = false;
-    isNewNumber = true;
-    hasPoint = false;
   }
+  opToUse = "/";
+  handleSetNumbers();
 };
 
 const handleEquals = (event: Event) => {
-  //console.log("Event: ", event);
   console.log("Running calculation");
   if (!isEqualsFiring) {
     isEqualsFiring = true;
     storedNumTwo = Number(numDisplay.innerText);
-    console.log("Number two is :" + storedNumTwo);
-  } else {
-    console.log("firing");
   }
 
   switch (opToUse) {
     case "+": {
-      console.log("Addition number one is: " + storedNumOne);
-      console.log("Addition number two is: " + storedNumTwo);
       total = storedNumOne + storedNumTwo;
       break;
     }
     case "-": {
-      console.log("Subtraction number one is: " + storedNumOne);
-      console.log("Subtraction number two is: " + storedNumTwo);
       total = storedNumOne - storedNumTwo;
       break;
     }
     case "X": {
-      console.log("Multiplication number one is: " + storedNumOne);
-      console.log("Multiplication number two is: " + storedNumTwo);
       total = storedNumOne * storedNumTwo;
       break;
     }
     case "/": {
-      console.log("Division number one is: " + storedNumOne);
-      console.log("Division number two is: " + storedNumTwo);
       total = storedNumOne / storedNumTwo;
       break;
     }
     case "%": {
-      //Note: Actual % on calc just divides number by 100.
-      //User must put x multiplied by y then % to get y% of x. Currently works but maybe change later
-      console.log("Percentage number one is: " + storedNumOne);
-      console.log("Percentage number two is: " + storedNumTwo);
       total = (storedNumOne / 100) * storedNumTwo;
+      break;
     }
   }
-  console.log(total);
   numDisplay.innerText = total.toString();
   oprDisplay.innerText = "";
   oprDisplay.innerText = "=";
   storedNumOne = total;
   isNewNumber = true;
   isPointUsed();
-
-  //hasBeenCalculated = true;
+  hasBeenCalculated = true;
 };
 
 const handleMidCalc = () => {
   storedNumTwo = Number(numDisplay.innerText);
   switch (opToUse) {
     case "+": {
-      console.log("Addition number one is: " + storedNumOne);
-      console.log("Addition number two is: " + storedNumTwo);
       total = storedNumOne + storedNumTwo;
       break;
     }
     case "-": {
-      console.log("Subtraction number one is: " + storedNumOne);
-      console.log("Subtraction number two is: " + storedNumTwo);
       total = storedNumOne - storedNumTwo;
       break;
     }
     case "X": {
-      console.log("Multiplication number one is: " + storedNumOne);
-      console.log("Multiplication number two is: " + storedNumTwo);
       total = storedNumOne * storedNumTwo;
       break;
     }
     case "/": {
-      console.log("Division number one is: " + storedNumOne);
-      console.log("Division number two is: " + storedNumTwo);
       total = storedNumOne / storedNumTwo;
       break;
     }
     case "%": {
-      //Note: Actual % on calc just divides number by 100.
-      //User must put x multiplied by y then % to get y% of x. Currently works but maybe change later
-      console.log("Percentage number one is: " + storedNumOne);
-      console.log("Percentage number two is: " + storedNumTwo);
       total = (storedNumOne / 100) * storedNumTwo;
     }
   }
-  console.log(total);
   numDisplay.innerText = total.toString();
 };
 
 const handleClear = (event: Event) => {
-  //console.log("Event: ", event);
   handleNumberClean(true);
 };
 
 const handleConversion = (event: Event) => {
-  //console.log("Event: ", event);
   if (!isConversionFiring && numDisplay.innerText !== "0") {
     numDisplay.innerText =
       "-" + Math.abs(Number(numDisplay.innerText)).toString();
@@ -438,7 +356,6 @@ const handleConversion = (event: Event) => {
 };
 
 const handlePercentage = (event: Event) => {
-  //console.log("Event: ", event);
   if (hasBeenCalculated) {
     storedNumOne = Number(numDisplay.innerText);
     numDisplay.innerText = "0";
@@ -464,16 +381,12 @@ const handlePercentage = (event: Event) => {
   }
 };
 
-//Add a point but only if one isn't already used
-//Additionally clicked numbers should be appended after the point
 const handlePoint = () => {
-  //console.log("Event: ", event);
   if (!hasPoint) {
     numDisplay.innerText = numDisplay.innerText + ".";
     hasPoint = true;
     isNewNumber = false;
   }
-  console.log(hasPoint);
 };
 
 //Functions to handle checks
@@ -487,7 +400,10 @@ const isPointUsed = () => {
   }
 };
 
+//Functions to handle setting values
+
 const handleNumberClean = (forceClean: boolean) => {
+  console.log(forceClean);
   if (oprDisplay.innerText === "=" || forceClean === true) {
     storedNumOne = 0;
     numDisplay.innerText = "0";
@@ -500,11 +416,21 @@ const handleNumberClean = (forceClean: boolean) => {
     isNewNumber = true;
     hasPoint = false;
     hasBeenCalculated = true;
-    console.log(
-      `Stored num one: ${storedNumOne}, stored num two: ${storedNumTwo}, total: ${total}, optouse: ${opToUse}, isEqualsfiring: ${isEqualsFiring}, isConversionFiring: ${isConversionFiring}, isNewNumber: ${isConversionFiring}, hasPoint: ${hasPoint}, hasBeenCalculated: ${hasBeenCalculated}`
-    );
-    console.log("Cleaning numbers");
-  } else console.log("Can't clean");
+    // console.log(
+    //   `Stored num one: ${storedNumOne}, stored num two: ${storedNumTwo}, total: ${total}, optouse: ${opToUse}, isEqualsfiring: ${isEqualsFiring}, isConversionFiring: ${isConversionFiring}, isNewNumber: ${isConversionFiring}, hasPoint: ${hasPoint}, hasBeenCalculated: ${hasBeenCalculated}`
+    // );
+  } else {
+  }
+};
+
+const handleSetNumbers = () => {
+  storedNumOne = Number(numDisplay.innerText);
+  numDisplay.innerText = "0";
+  oprDisplay.innerText = "";
+  oprDisplay.innerText = `${storedNumOne} ${opToUse}`;
+  isEqualsFiring = false;
+  isNewNumber = true;
+  hasPoint = false;
 };
 
 //Add event listeners to number buttons to enable click

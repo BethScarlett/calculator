@@ -1,0 +1,101 @@
+Remaining work for project
+
+- Finish additional-calculator-functionality
+- Create new branch to apply stylings onto page
+- Finish page stylings
+- Create a readme.md and write a short introduction into it
+- Clean up any unused code/notes which DONT denote a section (i.e. any notes which explain what I need/will do)
+- Go through code to ensure it is clean, readable and follows BEM
+
+For additional-calculator-functionality branch - Complete
+
+For styling branch
+
+- Decide on desgin to apply
+- Add introduction and explanation for page (Slogan If you've got Math.problems then we've got Math.solutions)
+- Create backdrop for calculator
+- Stlye and place buttons according to design
+
+///Current bugs///
+
+///Fixed Bugs///
+
+- handleConversion function (Current line 429 as of 28/03/24): numDisplay.innerText currently shows as error (type number is not assignable to type string) however the code works, and the same code 3 lines below works just without minus before Math.abs
+
+- Fixed by adding "-" as a string before math.abs and adding numDisplay.innerText !== "0" in if condition, so as to make it impossible for 0 to become -0
+
+---
+
+- User can put an additional point after clicking equals, but can't put one on a second number if it was used for the first (e.g. if the user input 2.x they can't then input 3.x). This occurs until user clicks equals, but this could lead to first issue.
+
+## Addendum - It seems to work but new bug has arisen so testing is difficult. Will return once fixed.
+
+- Fixed by creating a function to check if number input has a point, then setting hasPoint variable accordingly.
+
+---
+
+- Sometimes number isn't appended to display number after point is clicked. Instead it replaces the number and doesn't allow for point to be added.
+
+## Addendum - This bug only occurs when numDisplay is 0, even when there is a point. Bug seems to stem from first lines of get number functions
+
+- Fixed by setting isNewNumber variable within hasPoint function. Variable is set to false if point is added
+
+---
+
+- Clicking a new number after using equals but before clicking a new operator still has the old operator and total still stored
+
+## Thoughts - I could use clear function to clean up variables. Perhaps if op to use is = as if other ops are in place a longer equation is being used
+
+## Addendum - Clicking a new number now cleans everything and starts a new equation, however clicking clear if handleCleanNumbers has ran now won't allow clear to run afterwards. Will fix before closing bug.
+
+## Addendum 2 - handleCleanNumbers is only firing when = is present
+
+- Fixed by creating handleCleanNumbers function, then passing forceClean variable into it. forceClean true is passed in from handleClear function, and from get number functions but only if = was present
+
+---
+
+Bug:
+
+- Number won't be repeatedly acted on when = is repeatedly pressed ( 3 + 3 then = gives 6, but = again won't give 9)
+  Fix:
+- set oprDisplay.innerText = "=" with the handleEquals function. opToUse was being overridden, so case statements weren't being invoked.
+
+---
+
+Bug:
+
+- Clicking an operator after equals is pressed runs the calculation again before setting the display to be the newly clicked number
+- Both stored numbers are being set to equal the total, then the calc is being run
+
+Cause:
+
+- hasBeenCalculated was set to false when operator functions were pressed, but was never reset to true. Therefore handleMidCalc was always being ran which caused a second calculation to be performed unintentionally.
+
+Fix:
+
+- Set hasBeenCalculated to be true within handleEquals function
+
+---
+
+Bug:
+
+- Clicking a new number after equals is pressed doesn't clear if / or % were the operators used
+- If point is present in the display number, handleNumberClean won't fire
+
+Cause:
+
+- The get number functions had if statements to clean everything if a new number was pressed after = had been. However the condition also contain && !hasPoint meaning if the number had a point, it wouldn't be cleaned after equals. Both / and % are always likely to result in a floating point number.
+
+Fix:
+
+-Removed && !hasPoint from initial if statements in the get number functions
+
+///Additional work///
+
+- Add more operations / allow for bracket notations
+- Add additional calculators i.e. temperature
+
+For next session:
+
+- Continue refactoring and shifting code to improve readability
+- Begin designing calculator on site

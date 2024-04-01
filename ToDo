@@ -7,10 +7,7 @@ Remaining work for project
 - Clean up any unused code/notes which DONT denote a section (i.e. any notes which explain what I need/will do)
 - Go through code to ensure it is clean, readable and follows BEM
 
-For additional-calculator-functionality branch
-
-- Clean up code including unused notes and no longer needed console logs
-- Attempt to refactor code to improve readability and funcitonality
+For additional-calculator-functionality branch - Complete
 
 For styling branch
 

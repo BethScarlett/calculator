@@ -4,33 +4,62 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + TS</title>
+    <title>Calculator</title>
     <link rel="stylesheet" href="style.scss" />
   </head>
   <body>
     <script type="module" src="/src/main.ts"></script>
-    <div>
-      <h1 class="number-display">0</h1>
-      <h2 class="operator-display"></h2>
-      <button class="calcButton" id="clear">C</button>
-      <button class="calcButton" id="positive-negative">+ -</button>
-      <button class="calcButton" id="percent">%</button>
-      <button class="calcButton" id="divide">/</button>
-      <button class="calcButton" id="seven">7</button>
-      <button class="calcButton" id="eight">8</button>
-      <button class="calcButton" id="nine">9</button>
-      <button class="calcButton" id="multiply">X</button>
-      <button class="calcButton" id="four">4</button>
-      <button class="calcButton" id="five">5</button>
-      <button class="calcButton" id="six">6</button>
-      <button class="calcButton" id="minus">-</button>
-      <button class="calcButton" id="one">1</button>
-      <button class="calcButton" id="two">2</button>
-      <button class="calcButton" id="three">3</button>
-      <button class="calcButton" id="plus">+</button>
-      <button class="calcButton" id="zero">0</button>
-      <button class="calcButton" id="point">.</button>
-      <button class="calcButton" id="equals">=</button>
+    <div class="calc-container">
+      <h1 class="calc-container__heading">🧮The Calculator🧮</h1>
+      <p class="calc-container__slogan">
+        You've got math.problems? We've got math.solutions.
+      </p>
+      <p class="calc-container__description">
+        Use the below calculator to solve all your mathmatical equations:
+      </p>
+      <div class="calc-container__displays">
+        <h1 class="number-display">0</h1>
+        <h2 class="operator-display"></h2>
+      </div>
+      <div class="calc-container__buttons">
+        <button class="calcButton" id="clear">C</button>
+        <button class="calcButton" id="positive-negative">+ -</button>
+        <button class="calcButton" id="percent">%</button>
+        <button class="calcButton" id="divide">/</button>
+        <button class="calcButton" id="seven">7</button>
+        <button class="calcButton" id="eight">8</button>
+        <button class="calcButton" id="nine">9</button>
+        <button class="calcButton" id="multiply">X</button>
+        <button class="calcButton" id="four">4</button>
+        <button class="calcButton" id="five">5</button>
+        <button class="calcButton" id="six">6</button>
+        <button class="calcButton" id="minus">-</button>
+        <button class="calcButton" id="one">1</button>
+        <button class="calcButton" id="two">2</button>
+        <button class="calcButton" id="three">3</button>
+        <button class="calcButton" id="plus">+</button>
+        <button class="calcButton" id="zero">0</button>
+        <button class="calcButton" id="point">.</button>
+        <button class="calcButton" id="equals">=</button>
+      </div>
+      <footer class="calc-footer">
+        Want to learn more? Check out my portfolio:
+        <a href="https://bethscarlett.github.io/portfolio/" target="_blank" class="calc-footer__link">
+          <img
+            class="calc-footer__link--image"
+            src="./images/website-icon.png"
+            alt="Link to portfolio"
+          />
+        </a>
+        I also have a github page where I have uploaded all of my projects. You
+        can view it here:
+        <a href="https://github.com/BethScarlett" target="_blank" class="calc-footer__link">
+          <img
+            class="calc-footer__link--image"
+            src="./images/github-icon.PNG"
+            alt="Link to portfolio"
+          />
+      </footer>
     </div>
   </body>
 </html>

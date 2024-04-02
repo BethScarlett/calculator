@@ -4,7 +4,6 @@ Remaining work for project
 - Tweak 0 so it's more inline with other numbers
 - Remove operator on new number click
 - Go through everything again and ensure it is fully functional
-- Link to button images in readme, or delete if not working
 - Add some kind of animation in header/background, and adjust using media queries
 
 ///Current bugs///

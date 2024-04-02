@@ -8,6 +8,6 @@ This project has been coded in typescript, with SCSS also being utilised to styl
 
 ## How to operate
 
-You are able to select a number, an operator and then another number. These numbers can be any length and can include a point using point button, located at the bottom of the button field. At this point you can select equals or another operator (with the exception of +/-, . and C), and the calculation will be performed. This allows for any length of equation to be inputted by the user.
+You are able to select a number, an operator and then another number. These numbers can be any length and can include a point using ![dotbutton](/images/dot-button.PNG), located at the bottom of the button field. At this point you can select equals or another operator (with the exception of ![plusminusbutton](/images/plusminus-button.PNG), ![dotbutton](/images/dot-button.PNG) and ![clearbutton](/images/clear-button.PNG)), and the calculation will be performed. This allows for any length of equation to be inputted by the user.
 
-If you wish to start a new equation, you can either press the clear (C) button, or by selecting = and beginnning to input new numbers to start another sequence.
+If you wish to start a new equation, you can either press ![clearbutton](/images/clear-button.PNG), or by selecting = and beginnning to input new numbers to start another sequence.

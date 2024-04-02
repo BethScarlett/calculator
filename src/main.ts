@@ -1,6 +1,6 @@
 import "./style.scss";
 
-//Use query selectors to gain access to HTML elements, namely buttons and display
+///Using query selectors to gain access to HTML elements, namely buttons and display///
 //Getting number and operator displays
 const numDisplay =
   document.querySelector<HTMLHeadingElement>(".number-display");
@@ -42,7 +42,7 @@ let isNewNumber: boolean = true;
 let hasPoint: boolean = false;
 let hasBeenCalculated: boolean = true;
 
-//Handle any NULL exceptions by throwing errors if element doesn't exist
+///Handle any NULL exceptions by throwing errors if element doesn't exist///
 //Null exceptions for number buttons
 if (
   !zeroButton ||
@@ -79,6 +79,7 @@ if (!numDisplay || !oprDisplay) {
   throw new Error("Error with display");
 }
 
+///Event Functions///
 //Event functions to send clicked button value to display
 const getZero = (event: Event) => {
   if (numDisplay.innerText === "0" && oprDisplay.innerText === "=") {
@@ -89,18 +90,15 @@ const getZero = (event: Event) => {
     if (oprDisplay.innerText === "=") {
       oprDisplay.innerText = "";
     }
-    console.log("Changing number");
     numDisplay.innerText = zeroButton.innerText;
     isNewNumber = false;
   } else {
-    console.log("Appending number");
     numDisplay.innerText = numDisplay.innerText + zeroButton.innerText;
   }
   isConversionFiring = false;
 };
 const getOne = (event: Event) => {
   if (numDisplay.innerText === "0" && oprDisplay.innerText === "=") {
-    console.log("cleaning");
     handleNumberClean();
   }
 
@@ -108,13 +106,10 @@ const getOne = (event: Event) => {
     if (oprDisplay.innerText === "=") {
       oprDisplay.innerText = "";
     }
-    console.log(
-      `Changing number. Display number = ${numDisplay.innerText}. isNewNumber = ${isNewNumber}`
-    );
+
     numDisplay.innerText = oneButton.innerText;
     isNewNumber = false;
   } else {
-    console.log("Appending number");
     numDisplay.innerText = numDisplay.innerText + oneButton.innerText;
   }
   isConversionFiring = false;
@@ -128,11 +123,9 @@ const getTwo = (event: Event) => {
     if (oprDisplay.innerText === "=") {
       oprDisplay.innerText = "";
     }
-    console.log("Changing number");
     numDisplay.innerText = twoButton.innerText;
     isNewNumber = false;
   } else {
-    console.log("Appending number");
     numDisplay.innerText = numDisplay.innerText + twoButton.innerText;
   }
   isConversionFiring = false;
@@ -146,11 +139,9 @@ const getThree = (event: Event) => {
     if (oprDisplay.innerText === "=") {
       oprDisplay.innerText = "";
     }
-    console.log("Changing number");
     numDisplay.innerText = threeButton.innerText;
     isNewNumber = false;
   } else {
-    console.log("Appending number");
     numDisplay.innerText = numDisplay.innerText + threeButton.innerText;
   }
   isConversionFiring = false;
@@ -164,11 +155,9 @@ const getFour = (event: Event) => {
     if (oprDisplay.innerText === "=") {
       oprDisplay.innerText = "";
     }
-    console.log("Changing number");
     numDisplay.innerText = fourButton.innerText;
     isNewNumber = false;
   } else {
-    console.log("Appending number");
     numDisplay.innerText = numDisplay.innerText + fourButton.innerText;
   }
   isConversionFiring = false;
@@ -182,11 +171,9 @@ const getFive = (event: Event) => {
     if (oprDisplay.innerText === "=") {
       oprDisplay.innerText = "";
     }
-    console.log("Changing number");
     numDisplay.innerText = fiveButton.innerText;
     isNewNumber = false;
   } else {
-    console.log("Appending number");
     numDisplay.innerText = numDisplay.innerText + fiveButton.innerText;
   }
   isConversionFiring = false;
@@ -200,11 +187,9 @@ const getSix = (event: Event) => {
     if (oprDisplay.innerText === "=") {
       oprDisplay.innerText = "";
     }
-    console.log("Changing number");
     numDisplay.innerText = sixButton.innerText;
     isNewNumber = false;
   } else {
-    console.log("Appending number");
     numDisplay.innerText = numDisplay.innerText + sixButton.innerText;
   }
   isConversionFiring = false;
@@ -218,11 +203,9 @@ const getSeven = (event: Event) => {
     if (oprDisplay.innerText === "=") {
       oprDisplay.innerText = "";
     }
-    console.log("Changing number");
     numDisplay.innerText = sevenButton.innerText;
     isNewNumber = false;
   } else {
-    console.log("Appending number");
     numDisplay.innerText = numDisplay.innerText + sevenButton.innerText;
   }
   isConversionFiring = false;
@@ -236,11 +219,9 @@ const getEight = (event: Event) => {
     if (oprDisplay.innerText === "=") {
       oprDisplay.innerText = "";
     }
-    console.log("Changing number");
     numDisplay.innerText = eightButton.innerText;
     isNewNumber = false;
   } else {
-    console.log("Appending number");
     numDisplay.innerText = numDisplay.innerText + eightButton.innerText;
   }
   isConversionFiring = false;
@@ -254,11 +235,9 @@ const getNine = (event: Event) => {
     if (oprDisplay.innerText === "=") {
       oprDisplay.innerText = "";
     }
-    console.log("Changing number");
     numDisplay.innerText = nineButton.innerText;
     isNewNumber = false;
   } else {
-    console.log("Appending number");
     numDisplay.innerText = numDisplay.innerText + nineButton.innerText;
   }
   isConversionFiring = false;
@@ -317,7 +296,6 @@ const handlePercentage = (event: Event) => {
 };
 
 const handleEquals = (event: Event) => {
-  console.log("Running calculation");
   if (!isEqualsFiring) {
     isEqualsFiring = true;
     storedNumTwo = Number(numDisplay.innerText);
@@ -346,12 +324,9 @@ const handleEquals = (event: Event) => {
     }
   }
 
-  console.log(typeof total);
   if (isNaN(total)) {
-    console.log("one");
     alert("Error. 0 divided by 0 is not possible.");
   } else {
-    console.log("two");
     numDisplay.innerText = total.toString();
   }
   oprDisplay.innerText = "";
@@ -385,12 +360,9 @@ const handleMidCalc = () => {
       total = (storedNumOne / 100) * storedNumTwo;
     }
   }
-  console.log(typeof total);
   if (isNaN(total)) {
-    console.log("one");
     alert("Error. 0 divided by 0 is not possible.");
   } else {
-    console.log("two");
     numDisplay.innerText = total.toString();
   }
 };

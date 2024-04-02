@@ -16,10 +16,10 @@
 
     @keyframes alternateColourProblem {
       from {
-        color: white;
+        color: $slogan-base-colour;
       }
       to {
-        color: red;
+        color: $slogan-colour-one;
       }
     }
   }
@@ -28,10 +28,10 @@
 
     @keyframes alternateColourSolution {
       from {
-        color: white;
+        color: $slogan-base-colour;
       }
       to {
-        color: green;
+        color: $slogan-colour-two;
       }
     }
   }

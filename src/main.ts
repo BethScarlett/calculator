@@ -82,10 +82,13 @@ if (!numDisplay || !oprDisplay) {
 //Event functions to send clicked button value to display
 const getZero = (event: Event) => {
   if (numDisplay.innerText === "0" && oprDisplay.innerText === "=") {
-    handleNumberClean(true);
+    handleNumberClean();
   }
 
   if (numDisplay.innerText === "0" && isNewNumber === true) {
+    if (oprDisplay.innerText === "=") {
+      oprDisplay.innerText = "";
+    }
     console.log("Changing number");
     numDisplay.innerText = zeroButton.innerText;
     isNewNumber = false;
@@ -98,10 +101,13 @@ const getZero = (event: Event) => {
 const getOne = (event: Event) => {
   if (numDisplay.innerText === "0" && oprDisplay.innerText === "=") {
     console.log("cleaning");
-    handleNumberClean(true);
+    handleNumberClean();
   }
 
   if (numDisplay.innerText === "0" || isNewNumber === true) {
+    if (oprDisplay.innerText === "=") {
+      oprDisplay.innerText = "";
+    }
     console.log(
       `Changing number. Display number = ${numDisplay.innerText}. isNewNumber = ${isNewNumber}`
     );
@@ -115,10 +121,13 @@ const getOne = (event: Event) => {
 };
 const getTwo = (event: Event) => {
   if (numDisplay.innerText === "0" && oprDisplay.innerText === "=") {
-    handleNumberClean(true);
+    handleNumberClean();
   }
 
   if (numDisplay.innerText === "0" || isNewNumber === true) {
+    if (oprDisplay.innerText === "=") {
+      oprDisplay.innerText = "";
+    }
     console.log("Changing number");
     numDisplay.innerText = twoButton.innerText;
     isNewNumber = false;
@@ -130,10 +139,13 @@ const getTwo = (event: Event) => {
 };
 const getThree = (event: Event) => {
   if (numDisplay.innerText === "0" && oprDisplay.innerText === "=") {
-    handleNumberClean(true);
+    handleNumberClean();
   }
 
   if (numDisplay.innerText === "0" || isNewNumber === true) {
+    if (oprDisplay.innerText === "=") {
+      oprDisplay.innerText = "";
+    }
     console.log("Changing number");
     numDisplay.innerText = threeButton.innerText;
     isNewNumber = false;
@@ -145,10 +157,13 @@ const getThree = (event: Event) => {
 };
 const getFour = (event: Event) => {
   if (numDisplay.innerText === "0" && oprDisplay.innerText === "=") {
-    handleNumberClean(true);
+    handleNumberClean();
   }
 
   if (numDisplay.innerText === "0" || isNewNumber === true) {
+    if (oprDisplay.innerText === "=") {
+      oprDisplay.innerText = "";
+    }
     console.log("Changing number");
     numDisplay.innerText = fourButton.innerText;
     isNewNumber = false;
@@ -160,10 +175,13 @@ const getFour = (event: Event) => {
 };
 const getFive = (event: Event) => {
   if (numDisplay.innerText === "0" && oprDisplay.innerText === "=") {
-    handleNumberClean(true);
+    handleNumberClean();
   }
 
   if (numDisplay.innerText === "0" || isNewNumber === true) {
+    if (oprDisplay.innerText === "=") {
+      oprDisplay.innerText = "";
+    }
     console.log("Changing number");
     numDisplay.innerText = fiveButton.innerText;
     isNewNumber = false;
@@ -175,10 +193,13 @@ const getFive = (event: Event) => {
 };
 const getSix = (event: Event) => {
   if (numDisplay.innerText === "0" && oprDisplay.innerText === "=") {
-    handleNumberClean(true);
+    handleNumberClean();
   }
 
   if (numDisplay.innerText === "0" || isNewNumber === true) {
+    if (oprDisplay.innerText === "=") {
+      oprDisplay.innerText = "";
+    }
     console.log("Changing number");
     numDisplay.innerText = sixButton.innerText;
     isNewNumber = false;
@@ -190,10 +211,13 @@ const getSix = (event: Event) => {
 };
 const getSeven = (event: Event) => {
   if (numDisplay.innerText === "0" && oprDisplay.innerText === "=") {
-    handleNumberClean(true);
+    handleNumberClean();
   }
 
   if (numDisplay.innerText === "0" || isNewNumber === true) {
+    if (oprDisplay.innerText === "=") {
+      oprDisplay.innerText = "";
+    }
     console.log("Changing number");
     numDisplay.innerText = sevenButton.innerText;
     isNewNumber = false;
@@ -205,10 +229,13 @@ const getSeven = (event: Event) => {
 };
 const getEight = (event: Event) => {
   if (numDisplay.innerText === "0" && oprDisplay.innerText === "=") {
-    handleNumberClean(true);
+    handleNumberClean();
   }
 
   if (numDisplay.innerText === "0" || isNewNumber === true) {
+    if (oprDisplay.innerText === "=") {
+      oprDisplay.innerText = "";
+    }
     console.log("Changing number");
     numDisplay.innerText = eightButton.innerText;
     isNewNumber = false;
@@ -220,10 +247,13 @@ const getEight = (event: Event) => {
 };
 const getNine = (event: Event) => {
   if (numDisplay.innerText === "0" && oprDisplay.innerText === "=") {
-    handleNumberClean(true);
+    handleNumberClean();
   }
 
   if (numDisplay.innerText === "0" || isNewNumber === true) {
+    if (oprDisplay.innerText === "=") {
+      oprDisplay.innerText = "";
+    }
     console.log("Changing number");
     numDisplay.innerText = nineButton.innerText;
     isNewNumber = false;
@@ -315,7 +345,15 @@ const handleEquals = (event: Event) => {
       break;
     }
   }
-  numDisplay.innerText = total.toString();
+
+  console.log(typeof total);
+  if (isNaN(total)) {
+    console.log("one");
+    alert("Error. 0 divided by 0 is not possible.");
+  } else {
+    console.log("two");
+    numDisplay.innerText = total.toString();
+  }
   oprDisplay.innerText = "";
   oprDisplay.innerText = "=";
   storedNumOne = total;
@@ -347,7 +385,14 @@ const handleMidCalc = () => {
       total = (storedNumOne / 100) * storedNumTwo;
     }
   }
-  numDisplay.innerText = total.toString();
+  console.log(typeof total);
+  if (isNaN(total)) {
+    console.log("one");
+    alert("Error. 0 divided by 0 is not possible.");
+  } else {
+    console.log("two");
+    numDisplay.innerText = total.toString();
+  }
 };
 
 //Functions to handle checks
@@ -363,24 +408,21 @@ const isPointUsed = () => {
 
 //Functions to handle setting/resetting values
 const handleClear = (event: Event) => {
-  handleNumberClean(true);
+  handleNumberClean();
 };
 
-const handleNumberClean = (forceClean: boolean) => {
-  if (oprDisplay.innerText === "=" || forceClean === true) {
-    storedNumOne = 0;
-    numDisplay.innerText = "0";
-    storedNumTwo = 0;
-    total = 0;
-    opToUse = "";
-    oprDisplay.innerText = "";
-    isEqualsFiring = false;
-    isConversionFiring = false;
-    isNewNumber = true;
-    hasPoint = false;
-    hasBeenCalculated = true;
-  } else {
-  }
+const handleNumberClean = () => {
+  storedNumOne = 0;
+  numDisplay.innerText = "0";
+  storedNumTwo = 0;
+  total = 0;
+  opToUse = "";
+  oprDisplay.innerText = "";
+  isEqualsFiring = false;
+  isConversionFiring = false;
+  isNewNumber = true;
+  hasPoint = false;
+  hasBeenCalculated = true;
 };
 
 const handleSetNumbers = () => {

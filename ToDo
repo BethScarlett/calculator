@@ -1,10 +1,7 @@
 Remaining work for project
 
-- Create finishing touches branch
-- Tweak 0 so it's more inline with other numbers
-- Remove operator on new number click
-- Go through everything again and ensure it is fully functional
 - Add some kind of animation in header/background, and adjust using media queries
+- Remove all missed console logs and unneeded comments
 
 ///Current bugs///
 
@@ -80,7 +77,30 @@ Fix:
 
 -Removed && !hasPoint from initial if statements in the get number functions
 
-///Additional work///
+---
+
+Bug:
+
+- Equals symbol won't go away on new number press, but only after an operator has been pressed
+
+Fix:
+
+- Before changinging number, added an if statement to check if there is an equals in the oprDisplay and if there is, set it be a blank string
+
+---
+
+Bug:
+
+- Dividing 0 by 0 brings up a NaN
+
+Cause:
+
+- Attempting to dividie 0 by 0 results in undefined
+
+Fix:
+
+- Added a check to only update displays with total if the result was not NaN. Otherwise alerted user.
+  ///Additional work///
 
 - Add more operations / allow for bracket notations
 - Add additional calculators i.e. temperature

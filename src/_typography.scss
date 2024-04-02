@@ -1,8 +1,9 @@
 @use "./variables" as *;
 
 .calc-container__heading {
-  font-size: 32px;
+  font-size: 36px;
   font-family: $page-heading-font;
+  font-weight: bold;
   color: $page-heading;
 }
 
@@ -10,6 +11,30 @@
   font-size: 24px;
   font-family: $page-description-font;
   color: $page-heading;
+  .calc-container__slogan--problem {
+    animation: alternateColourProblem 5s infinite alternate;
+
+    @keyframes alternateColourProblem {
+      from {
+        color: white;
+      }
+      to {
+        color: red;
+      }
+    }
+  }
+  .calc-container__slogan--solution {
+    animation: alternateColourSolution 5s infinite alternate;
+
+    @keyframes alternateColourSolution {
+      from {
+        color: white;
+      }
+      to {
+        color: green;
+      }
+    }
+  }
 }
 
 .calc-container__description {

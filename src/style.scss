@@ -1,14 +1,7 @@
-* {
-  background-color: black;
-}
-
-h1 {
-  color: white;
-}
-
-h2 {
-  color: white;
-}
+@use "./layout" as *;
+@use "./typography" as *;
+@use "./buttons" as *;
+@use "./media-queries" as *;
 
 button {
   background-color: white;

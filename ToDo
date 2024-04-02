@@ -1,20 +1,11 @@
 Remaining work for project
 
-- Finish additional-calculator-functionality
-- Create new branch to apply stylings onto page
-- Finish page stylings
-- Create a readme.md and write a short introduction into it
-- Clean up any unused code/notes which DONT denote a section (i.e. any notes which explain what I need/will do)
-- Go through code to ensure it is clean, readable and follows BEM
-
-For additional-calculator-functionality branch - Complete
-
-For styling branch
-
-- Decide on desgin to apply
-- Add introduction and explanation for page (Slogan If you've got Math.problems then we've got Math.solutions)
-- Create backdrop for calculator
-- Stlye and place buttons according to design
+- Create finishing touches branch
+- Tweak 0 so it's more inline with other numbers
+- Remove operator on new number click
+- Go through everything again and ensure it is fully functional
+- Link to button images in readme, or delete if not working
+- Add some kind of animation in header/background, and adjust using media queries
 
 ///Current bugs///
 

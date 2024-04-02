@@ -1,0 +1,7 @@
+@use "./variables" as *;
+
+.calcButton {
+  padding: 10px 5px;
+  font-size: 24px;
+  font-family: $button-text;
+}

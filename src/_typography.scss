@@ -1,0 +1,33 @@
+@use "./variables" as *;
+
+.calc-container__heading {
+  font-size: 32px;
+  font-family: $page-heading-font;
+  color: $page-heading;
+}
+
+.calc-container__slogan {
+  font-size: 24px;
+  font-family: $page-description-font;
+  color: $page-heading;
+}
+
+.calc-container__description {
+  font-size: 18px;
+  font-family: $page-description-font;
+  color: $page-heading;
+}
+
+.number-display {
+  font-family: $number-display-font;
+  color: $number-display-colour;
+}
+
+.operator-display {
+  color: $number-display-colour;
+}
+
+.calc-footer {
+  font-size: 20px;
+  font-family: $footer-font;
+}

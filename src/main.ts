@@ -96,6 +96,7 @@ const getZero = (event: Event) => {
     numDisplay.innerText = numDisplay.innerText + zeroButton.innerText;
   }
   isConversionFiring = false;
+  console.log(event);
 };
 const getOne = (event: Event) => {
   if (numDisplay.innerText === "0" && oprDisplay.innerText === "=") {
@@ -113,6 +114,7 @@ const getOne = (event: Event) => {
     numDisplay.innerText = numDisplay.innerText + oneButton.innerText;
   }
   isConversionFiring = false;
+  console.log(event);
 };
 const getTwo = (event: Event) => {
   if (numDisplay.innerText === "0" && oprDisplay.innerText === "=") {
@@ -129,6 +131,7 @@ const getTwo = (event: Event) => {
     numDisplay.innerText = numDisplay.innerText + twoButton.innerText;
   }
   isConversionFiring = false;
+  console.log(event);
 };
 const getThree = (event: Event) => {
   if (numDisplay.innerText === "0" && oprDisplay.innerText === "=") {
@@ -145,6 +148,7 @@ const getThree = (event: Event) => {
     numDisplay.innerText = numDisplay.innerText + threeButton.innerText;
   }
   isConversionFiring = false;
+  console.log(event);
 };
 const getFour = (event: Event) => {
   if (numDisplay.innerText === "0" && oprDisplay.innerText === "=") {
@@ -161,6 +165,7 @@ const getFour = (event: Event) => {
     numDisplay.innerText = numDisplay.innerText + fourButton.innerText;
   }
   isConversionFiring = false;
+  console.log(event);
 };
 const getFive = (event: Event) => {
   if (numDisplay.innerText === "0" && oprDisplay.innerText === "=") {
@@ -177,6 +182,7 @@ const getFive = (event: Event) => {
     numDisplay.innerText = numDisplay.innerText + fiveButton.innerText;
   }
   isConversionFiring = false;
+  console.log(event);
 };
 const getSix = (event: Event) => {
   if (numDisplay.innerText === "0" && oprDisplay.innerText === "=") {
@@ -193,6 +199,7 @@ const getSix = (event: Event) => {
     numDisplay.innerText = numDisplay.innerText + sixButton.innerText;
   }
   isConversionFiring = false;
+  console.log(event);
 };
 const getSeven = (event: Event) => {
   if (numDisplay.innerText === "0" && oprDisplay.innerText === "=") {
@@ -209,6 +216,7 @@ const getSeven = (event: Event) => {
     numDisplay.innerText = numDisplay.innerText + sevenButton.innerText;
   }
   isConversionFiring = false;
+  console.log(event);
 };
 const getEight = (event: Event) => {
   if (numDisplay.innerText === "0" && oprDisplay.innerText === "=") {
@@ -225,6 +233,7 @@ const getEight = (event: Event) => {
     numDisplay.innerText = numDisplay.innerText + eightButton.innerText;
   }
   isConversionFiring = false;
+  console.log(event);
 };
 const getNine = (event: Event) => {
   if (numDisplay.innerText === "0" && oprDisplay.innerText === "=") {
@@ -241,6 +250,7 @@ const getNine = (event: Event) => {
     numDisplay.innerText = numDisplay.innerText + nineButton.innerText;
   }
   isConversionFiring = false;
+  console.log(event);
 };
 
 //Event functions to perform operator calculations
@@ -253,6 +263,7 @@ const handleAddition = (event: Event) => {
   }
   opToUse = "+";
   handleSetNumbers();
+  console.log(event);
 };
 
 const handleSubtraction = (event: Event) => {
@@ -263,6 +274,7 @@ const handleSubtraction = (event: Event) => {
   }
   opToUse = "-";
   handleSetNumbers();
+  console.log(event);
 };
 
 const handleMultiplication = (event: Event) => {
@@ -273,6 +285,7 @@ const handleMultiplication = (event: Event) => {
   }
   opToUse = "X";
   handleSetNumbers();
+  console.log(event);
 };
 
 const handleDivision = (event: Event) => {
@@ -283,6 +296,7 @@ const handleDivision = (event: Event) => {
   }
   opToUse = "/";
   handleSetNumbers();
+  console.log(event);
 };
 
 const handlePercentage = (event: Event) => {
@@ -293,6 +307,7 @@ const handlePercentage = (event: Event) => {
   }
   opToUse = "%";
   handleSetNumbers();
+  console.log(event);
 };
 
 const handleEquals = (event: Event) => {
@@ -335,6 +350,7 @@ const handleEquals = (event: Event) => {
   isNewNumber = true;
   isPointUsed();
   hasBeenCalculated = true;
+  console.log(event);
 };
 
 const handleMidCalc = () => {
@@ -381,6 +397,7 @@ const isPointUsed = () => {
 //Functions to handle setting/resetting values
 const handleClear = (event: Event) => {
   handleNumberClean();
+  console.log(event);
 };
 
 const handleNumberClean = () => {
@@ -412,6 +429,7 @@ const handleConversion = (event: Event) => {
     numDisplay.innerText =
       "-" + Math.abs(Number(numDisplay.innerText)).toString();
     isConversionFiring = true;
+    console.log(event);
   } else {
     numDisplay.innerText = Math.abs(Number(numDisplay.innerText)).toString();
     isConversionFiring = false;

@@ -1,8 +1,10 @@
+@use "./variables" as *;
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  background-color: black;
+  background-color: $page-background-colour;
 }
 
 .calc-container {
@@ -26,16 +28,16 @@
 
   .calc-container__displays {
     padding: 10px 5px;
-    background-color: grey;
-    border: 5px solid green;
+    background-color: $container-background;
+    border: 5px solid $container-border;
     border-radius: 10px;
 
     .number-display {
-      background-color: grey;
+      background-color: $container-background;
     }
 
     .operator-display {
-      background-color: grey;
+      background-color: $container-background;
     }
   }
 
@@ -45,8 +47,8 @@
     row-gap: 15px;
     column-gap: 3.25%;
     padding: 10px 5px;
-    background-color: grey;
-    border: 5px solid green;
+    background-color: $container-background;
+    border: 5px solid $container-border;
     border-radius: 10px;
     margin-top: 30px;
 
@@ -63,8 +65,8 @@
     text-align: center;
     height: max-content;
     margin-top: 30px;
-    color: white;
-    background-color: black;
+    color: $footer-text-colour;
+    background-color: $footer-background-colour;
 
     .calc-footer__link {
       display: flex;
